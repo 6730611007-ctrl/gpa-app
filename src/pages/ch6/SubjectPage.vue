@@ -1,0 +1,27 @@
+<template>
+  <q-page class="q-pa-md">
+    <q-card class="q-mt-md" v-for="value in store.subjects" :key="value.id">
+      <q-card-section>
+        <div class="text-h6">{{ value.code }} {{ value.name }}</div>
+        <div class="text-subtitle2">Credit: {{ value.credit }}</div>
+      </q-card-section>
+    </q-card>
+  </q-page>
+</template>
+
+<script setup>
+import { useSubjectsStore } from '@/stores/subjects-store'
+
+const store = useSubjectsStore()
+
+store.fetchAll()
+</script>
+
+<style scoped>
+:deep(.q-card) {
+  border: 0cap;
+  background-color: hsl(72, 64%, 92%);
+  border-radius: 20px;
+  color: rgb(17, 105, 206);
+}
+</style>
